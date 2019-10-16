@@ -121,12 +121,12 @@ details, summary {
 
 details summary:before,
 details[open] > details summary:before {
-  content: '› ';
+  content: '\2023  ';
 }
 
 details[open] summary:before,
 details[open] > details[open] summary:before {
-  content: '✎ ';
+  content: '\270e ';
 }
 
 p {
