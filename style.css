@@ -135,18 +135,21 @@ pre code {
 [class*='style_'] {
 	width: 100%;
 	list-style: none;
+	color: var(--fg);
 }
 
 [class*='style_'] .link {
 	cursor: pointer;
 	font-family: Roboto, sans-serif;
 	font-weight: normal;
+	background: none;
 }
 
 [class*='style_'] .nav .link {
 	padding: 10px;
 	border: 1px solid transparent;
 	background: var(--fg_light);
+	box-shadow: none;
 }
 
 [class*='style_'] .nav .link.active {
@@ -161,19 +164,19 @@ pre code {
 	opacity: 0;
 	visibility: hidden;
 	height: 0;
+	box-shadow: none;
 	transition: opacity .1s;
 	overflow: hidden;
 }
 
-[class*='style_'] .content li {
-	margin: 0 0 .25em;
-	margin-left: 1em;
-	list-style: none;
+[data-title] li {
+	margin: 0 0 .4em 1em;
+	list-style-position: inside;
 }
 
-[class*='style_'] .content li li {
-	list-style: initial;
-	list-style-position: inside;
+.nolist > li {
+	margin: 0 0 .4em;
+	list-style: none;
 }
 
 [class*='style_'] .content.active {
@@ -185,6 +188,7 @@ pre code {
 	width: 100%;
 	height: auto;
 	border: 1px solid transparent;
+	background: none;
 	box-shadow: var(--shadow_active);
   overflow: hidden;
 	z-index: 1;
@@ -239,9 +243,23 @@ pre code {
 .style_accordion .content .link,
 .style_vertical.responsive .link,
 .style_vertical.responsive .content .link {
-	display: block;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 	padding: 8px 16px;
 	background: var(--fg_light);
+}
+
+.style_accordion .content .link:after,
+.style_vertical.responsive .content .link:after {
+	content: '\1f780';
+	font-size: inherit;
+}
+
+.style_accordion .content.active .link:after,
+.style_vertical.responsive .content.active .link:after {
+	content: '\1f783';
+	font-size: inherit;
 }
 
 .style_accordion .link.active,
